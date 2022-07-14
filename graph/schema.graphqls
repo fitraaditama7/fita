@@ -1,0 +1,25 @@
+type Product{
+  sku: String!
+  name: String!
+  price: Float!
+  qty: Int!
+}
+
+input NewCheckout{
+  sku: String!
+  qty: Int!
+}
+
+type ProductQuantity{
+  product: Product!
+  qty: Int!
+}
+
+type ProductTotal{
+  products: [ProductQuantity!]!
+  totals: Float!
+}
+
+type Mutation{
+  checkout(input: [NewCheckout]): ProductTotal!
+}
